@@ -7,9 +7,7 @@ const SearchByMovie = ({ dispatch }) => {
   const [selected, setInput] = useState('http://swapi.dev/api/films/1/');
 
   const handleSelect = e => {
-    setInput(prev => {
-      prev.selected = `${e.target.value}`;
-    });
+    setInput(`${e.target.value}`);
   };
 
   return (
