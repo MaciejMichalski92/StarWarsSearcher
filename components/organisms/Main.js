@@ -11,7 +11,7 @@ const Main = ({ dispatch, state }) => {
     <main>
       <StarsContainer />
       {ships}
-      {state.length > 1 ? null : (
+      {state.length > 0 ? null : (
         <Button
           text={'Back'}
           handler={() => dispatch({ type: 'all starships' })}

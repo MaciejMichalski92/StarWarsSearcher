@@ -14,7 +14,7 @@ const Section = () => {
         return initialState;
       case 'by name':
         return initialState.filter(ship =>
-          ship.name.toLowerCase().includes(action.film.toLowerCase())
+          ship.name.toLowerCase().includes(action.value.toLowerCase())
         );
       case 'by movie':
         return initialState;
