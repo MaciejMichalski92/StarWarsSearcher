@@ -17,8 +17,13 @@ const Section = () => {
           ship.name.toLowerCase().includes(action.value.toLowerCase())
         );
       case 'by movie':
-        return initialState;
-      // to be continued
+        return initialState.filter(ship => {
+          for (let i = 0; i < ship.films.length; i++) {
+            if (ship.films[i] == action.film) {
+              return ship;
+            }
+          }
+        });
       default:
         throw new Error('error in reducer');
     }

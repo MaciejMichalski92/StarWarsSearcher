@@ -5,7 +5,9 @@ import uniqid from 'uniqid';
 // import Star from '../atoms/Star';
 import { starGenerator } from '../../functions';
 
-const DynamicComponent = dynamic(() => import('../atoms/Star'));
+const DynamicComponentWithNoSSR = dynamic(() => import('../atoms/Star'), {
+  ssr: false,
+});
 // dynamic component, only on Client side, due to Math.random problem in rehydration
 
 const StarsContainer = () => {
@@ -15,7 +17,7 @@ const StarsContainer = () => {
   const [starsState] = useState(starsArrayGenerated);
 
   const stars = starsState.map(star => (
-    <DynamicComponent key={uniqid()} {...star} />
+    <DynamicComponentWithNoSSR key={uniqid()} {...star} />
   ));
 
   return (
