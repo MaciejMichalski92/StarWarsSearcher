@@ -2,6 +2,7 @@ import uniqid from 'uniqid';
 
 import StarsContainer from './StarsContainer';
 import Ship from '../molecules/Ship';
+import AlertTitle from '../atoms/AlertTitle';
 import Button from '../atoms/Button';
 
 const Main = ({ dispatch, state }) => {
@@ -12,10 +13,13 @@ const Main = ({ dispatch, state }) => {
       <StarsContainer />
       {ships}
       {state.length > 0 ? null : (
-        <Button
-          text={'Back'}
-          handler={() => dispatch({ type: 'all starships' })}
-        />
+        <>
+          <AlertTitle text='there are no starships here' />
+          <Button
+            text={'Back'}
+            handler={() => dispatch({ type: 'all starships' })}
+          />
+        </>
       )}
       <style jsx>
         {`
